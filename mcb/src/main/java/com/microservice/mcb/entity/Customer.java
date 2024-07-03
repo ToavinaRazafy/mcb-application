@@ -54,8 +54,8 @@ public class Customer {
     @Column(name = "director_name")
     private String directorName;
     
-    @Column(name = "passport_name")
-    private String passportName;
+    @Column(name = "passport_number")
+    private String passportNumber;
     
     @Column(name = "designated_name")
     private String designatedName;
@@ -147,12 +147,12 @@ public class Customer {
         this.directorName = directorName;
     }
 
-    public String getPassportName() {
-        return passportName;
+    public String getPassportNumber() {
+        return passportNumber;
     }
 
-    public void setPassportName(String passportName) {
-        this.passportName = passportName;
+    public void setPassportNumber(String passportNumber) {
+        this.passportNumber = passportNumber;
     }
 
     public String getDesignatedName() {
