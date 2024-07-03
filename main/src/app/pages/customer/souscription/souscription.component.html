@@ -1,0 +1,137 @@
+
+
+
+
+  <div class="py-5 text-center">
+    <img class="d-block mx-auto mb-4" src="assets/img/logo2.png" alt="Logo"  >
+    <h2>Nice to meet you</h2>
+  </div>
+
+  <div class="row g-5">
+    <div class="col-md-2 col-lg-2">
+
+    </div>
+    <div class="col-md-8 col-lg-8">
+      <h6 class="mb-3">Please enter your personnal information to ensure it matches the details on your</h6>
+
+      <!--form class="needs-validation" novalidate-->
+
+      <div class="col-12">
+        <label for="address" class="form-label">Name of company</label>
+        <input type="text"  class="form-control needs-validation" id="companyname" placeholder="" required>
+        <div class="invalid-feedback">
+          Please enter your company name.
+        </div>
+      </div>
+
+
+      <div class="row md-6">
+        <div class="col-md-6">
+          <label for="Main" class="form-label">Main objective of the request</label>
+          <select class="form-select" id="country" required>
+            <option value="">Choose...</option>
+            <option> Investment porƞolio</option>
+            <option> Account to operate locally</option>
+            <option> Account to operate overseas</option>
+            <option> Energy & commodities financing</option>
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label for="Type" class="form-label">Type of entity</label>
+          <select class="form-select" id="country" required>
+            <option value="">Choose...</option>
+            <option> Trust</option>
+            <option> Association</option>
+            <option> Private Company</option>
+            <option> Others</option>
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label for="Business" class="form-label">Business activity</label>
+          <select class="form-select" id="country" required>
+            <option value="">Choose...</option>
+            <option> Banking</option>
+            <option> Fishing</option>
+            <option> Manufacturing</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label for="Country" class="form-label">Country of incorporation</label>
+          <select class="form-select" id="country" required>
+            <option value="">Choose...</option>
+            <option> Madagascar</option>
+          </select>
+        </div>
+
+        <div class="col-12">
+          <label for="Registration" class="form-label">Registration number</label>
+          <input type="text" class="form-control" id="registrationNumber" placeholder="" required>
+          <div class="invalid-feedback">
+            Please enter your company name.
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label for="Date" class="form-label">Date of incorporation</label>
+          <input type="text" class="form-control" id="address" placeholder="" required>
+          <div class="invalid-feedback">
+            Please enter your company name.
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label for="Passport" class="form-label">Passport number of directors</label>
+          <input type="text" class="form-control" id="address" placeholder="" required>
+          <div class="invalid-feedback">
+            Please enter your company name.
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <label for="NameDir" class="form-label">Name of Director/ Shareholders</label>
+          <input type="text" class="form-control" id="address" placeholder="" required>
+          <div class="invalid-feedback">
+            Please enter your company name.
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <label for="address" class="form-label">Name of designated applicant</label>
+          <input type="text" class="form-control" id="address" placeholder="" required>
+          <div class="invalid-feedback">
+            Please enter your company name.
+          </div>
+        </div>
+
+        <div class="col-12">
+          <label for="username" class="form-label">Email address for further communication</label>
+          <div class="input-group has-validation">
+            <span class="input-group-text"></span>
+            <input type="text" class="form-control" id="username" placeholder="Username" required>
+            <div class="invalid-feedback">
+              Your username is required.
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <hr class="my-4">
+
+      <button (click)="next()" class="w-100 btn btn-secondary btn-lg" type="submit">Next</button>
+
+      <!--/form-->
+      <div *ngIf="showAlert" style="text-align: center;" class="alert alert-danger alert-dismissible fixed-bottom fade show" role="alert">
+        Erreur : quelque chose s'est mal passé.
+      </div>
+    </div>
+    <div class="col-md-2 col-lg-2">
+
+    </div>
+  </div>
+
+<footer class="my-5 pt-5 text-muted text-center text-small">
+  <
+</footer>
+

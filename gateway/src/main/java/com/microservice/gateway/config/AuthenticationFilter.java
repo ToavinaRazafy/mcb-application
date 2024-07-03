@@ -33,19 +33,19 @@ public class AuthenticationFilter implements GatewayFilter{
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         ServerHttpRequest request = exchange.getRequest();
 
-        //if (routerValidator.isSecured.test(request)) {
-            //if (this.isAuthMissing(request) || this.isPrefixMissing(request))
-                //return this.onError(exchange, "Authorization header is missing in request", HttpStatus.UNAUTHORIZED);
-
-            final String token = this.getAuthHeader(request);
-            System.out.println("token**************************" + token);
-            /*if (jwtUtil.isInvalid(token))
-            {
-                System.out.println("**************************************** Token is invalid");
-                return this.onError(exchange, "Authorization header is invalid", HttpStatus.UNAUTHORIZED);
-            }   */  
-            //this.populateRequestWithHeaders(exchange, token);
-        //} 
+//        //if (routerValidator.isSecured.test(request)) {
+//            //if (this.isAuthMissing(request) || this.isPrefixMissing(request))
+//                //return this.onError(exchange, "Authorization header is missing in request", HttpStatus.UNAUTHORIZED);
+//
+////            final String token = this.getAuthHeader(request);
+////            System.out.println("token**************************" + token);
+//            /*if (jwtUtil.isInvalid(token))
+//            {
+//                System.out.println("**************************************** Token is invalid");
+//                return this.onError(exchange, "Authorization header is invalid", HttpStatus.UNAUTHORIZED);
+//            }   */  
+//            //this.populateRequestWithHeaders(exchange, token);
+//        //} 
         return chain.filter(exchange);
     }
 
