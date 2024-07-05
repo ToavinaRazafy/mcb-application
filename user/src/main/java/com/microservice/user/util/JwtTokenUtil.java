@@ -46,8 +46,6 @@ public class JwtTokenUtil {
         System.out.println("**************************" + login.getUsername());
         Date now = new Date();
         Date expiryDate = new Date(now.getTime() + tokenValidity);
-
-        System.out.println("secret key : " + this.secretKey);
         
         return Jwts.builder()
                 .setSubject("user information")

@@ -21,13 +21,10 @@ public class LoginServiceImpl implements LoginService{
     
     @Override
     public String authenticate(User login) throws Exception {
-        System.out.println("username : " + login.getUsername());
-        System.out.println("Crypted password : " + PasswordUtil.hashPassword(login.getPassword()));
-        User l = loginRepository.findByUsername(login.getUsername()).orElseThrow() ; 
-        if(!PasswordUtil.checkPassword(login.getPassword(), l.getPassword()))
+        User user = loginRepository.findByUsername(login.getUsername()).orElseThrow() ; 
+        if(!PasswordUtil.checkPassword(login.getPassword(), user.getPassword()))
             throw new Exception("User not found") ; 
-        System.out.println(login.toString());
-        return this.jwtTokenUtil.generate(l) ; 
+        return this.jwtTokenUtil.generate(user) ; 
     }
         
 }

@@ -2,16 +2,16 @@ import { NavItem } from './nav-item/nav-item';
 
 export const navItems: NavItem[] = [
   {
-    navCap: 'Home',
-  },
-  {
-    displayName: 'Dashboard',
-    iconName: 'layout-dashboard',
-    route: '/dashboard',
+    navCap: 'Menu',
   },
   {
     displayName: 'Souscription',
     iconName: 'layout-dashboard',
     route: '/customer/souscription',
+  },
+  {
+    displayName: 'List',
+    iconName: 'layout-dashboard',
+    route: '/customer/list'
   }
 ];

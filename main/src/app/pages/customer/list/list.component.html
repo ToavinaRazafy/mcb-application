@@ -1,0 +1,26 @@
+<div class="row mt-2">
+  <div class="col-sm-12">
+    <div widget class="card border-0 box-shadow">
+      <div class="table-responsive">
+        <table class="table table-sm">
+          <thead>
+          <tr>
+            <th>Name of company</th>
+            <th>Type of entity</th>
+            <th>Business Activity</th>
+            <th>Country</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let customer of customers">
+            <td>{{customer.companyName}}</td>
+            <td>{{customer.typeEntity}}</td>
+            <td>{{customer.businessActivity}}</td>
+            <td>{{customer.country}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

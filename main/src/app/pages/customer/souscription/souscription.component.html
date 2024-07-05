@@ -1,137 +1,108 @@
+<div class="py-5 text-center">
+  <h2>Subscription</h2>
+</div>
 
+<div class="row">
+  <div class="col-lg-2">
 
-
-
-  <div class="py-5 text-center">
-    <img class="d-block mx-auto mb-4" src="assets/img/logo2.png" alt="Logo"  >
-    <h2>Nice to meet you</h2>
   </div>
+  <div class="col-md-8 col-lg-8">
 
-  <div class="row g-5">
-    <div class="col-md-2 col-lg-2">
-
-    </div>
-    <div class="col-md-8 col-lg-8">
-      <h6 class="mb-3">Please enter your personnal information to ensure it matches the details on your</h6>
-
-      <!--form class="needs-validation" novalidate-->
-
-      <div class="col-12">
-        <label for="address" class="form-label">Name of company</label>
-        <input type="text"  class="form-control needs-validation" id="companyname" placeholder="" required>
-        <div class="invalid-feedback">
-          Please enter your company name.
+    <form [formGroup]="form" (ngSubmit)="souscription()">
+      <div class="row">
+        <div class="col-md-12 mb-3">
+          <label for="address" class="form-label">Name of company</label>
+          <input type="text" class="form-control needs-validation" formControlName="companyName" id="companyName" placeholder="" autocomplete="off">
+          <small class="text-danger"
+                 *ngIf="form.get('companyName')?.touched && form.get('companyName')?.hasError('required')">Required field</small>
         </div>
-      </div>
-
-
-      <div class="row md-6">
-        <div class="col-md-6">
+        <div class="col-md-12 mb-3">
           <label for="Main" class="form-label">Main objective of the request</label>
-          <select class="form-select" id="country" required>
-            <option value="">Choose...</option>
-            <option> Investment porƞolio</option>
-            <option> Account to operate locally</option>
-            <option> Account to operate overseas</option>
-            <option> Energy & commodities financing</option>
+          <select class="form-select" formControlName="purpose" id="purpose" required>
+            <option value="" [disabled]="true">Select an option</option>
+            <option *ngFor="let purpose of purposes" [value]="purpose.id">{{purpose.designation}}</option>
           </select>
+          <small class="text-danger"
+                 *ngIf="form.get('purpose')?.touched && form.get('purpose')?.hasError('required')">Required field</small>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-12 mb-3">
           <label for="Type" class="form-label">Type of entity</label>
-          <select class="form-select" id="country" required>
-            <option value="">Choose...</option>
-            <option> Trust</option>
-            <option> Association</option>
-            <option> Private Company</option>
-            <option> Others</option>
+          <select class="form-select" formControlName="typeEntity" id="country" required>
+            <option value="" [disabled]="true">Select an option</option>
+            <option *ngFor="let typeEntity of typeEntities" [value]="typeEntity.id">{{typeEntity.designation}}</option>
           </select>
+          <small class="text-danger"
+                 *ngIf="form.get('typeEntity')?.touched && form.get('typeEntity')?.hasError('required')">Required field</small>
         </div>
-
-        <div class="col-md-6">
+        <div class="col-md-12 mb-3">
           <label for="Business" class="form-label">Business activity</label>
-          <select class="form-select" id="country" required>
-            <option value="">Choose...</option>
-            <option> Banking</option>
-            <option> Fishing</option>
-            <option> Manufacturing</option>
+          <select class="form-select" formControlName="businessActivity" id="country">
+            <option value="" [disabled]="true">Select an option</option>
+            <option *ngFor="let business of businesses" [value]="business.id">{{business.designation}}</option>
           </select>
+          <small class="text-danger"
+                 *ngIf="form.get('businessActivity')?.touched && form.get('businessActivity')?.hasError('required')">Required field</small>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-12 mb-3">
           <label for="Country" class="form-label">Country of incorporation</label>
-          <select class="form-select" id="country" required>
-            <option value="">Choose...</option>
-            <option> Madagascar</option>
+          <select class="form-select" formControlName="country" id="country">
+            <option value="" [disabled]="true">Select an option</option>
+            <option *ngFor="let country of countries" [value]="country.id">{{country.designation}}</option>
           </select>
+          <small class="text-danger"
+                 *ngIf="form.get('country')?.touched && form.get('country')?.hasError('required')">Required field</small>
         </div>
-
-        <div class="col-12">
+        <div class="col-md-12 mb-3">
           <label for="Registration" class="form-label">Registration number</label>
-          <input type="text" class="form-control" id="registrationNumber" placeholder="" required>
-          <div class="invalid-feedback">
-            Please enter your company name.
-          </div>
+          <input type="text" class="form-control" formControlName="registrationNumber" id="registrationNumber" autocomplete="off">
+          <small class="text-danger"
+                 *ngIf="form.get('registrationNumber')?.touched && form.get('registrationNumber')?.hasError('required')">Required field</small>
         </div>
-
-        <div class="col-md-6">
+        <div class="col-md-12 mb-3">
           <label for="Date" class="form-label">Date of incorporation</label>
-          <input type="text" class="form-control" id="address" placeholder="" required>
-          <div class="invalid-feedback">
-            Please enter your company name.
-          </div>
+          <input type="date" formControlName="dateIncorporation" class="form-control" id="address">
+          <small class="text-danger"
+                 *ngIf="form.get('dateIncorporation')?.touched && form.get('dateIncorporation')?.hasError('required')">Required field</small>
         </div>
-
-        <div class="col-md-6">
-          <label for="Passport" class="form-label">Passport number of directors</label>
-          <input type="text" class="form-control" id="address" placeholder="" required>
-          <div class="invalid-feedback">
-            Please enter your company name.
-          </div>
-        </div>
-
-        <div class="col-md-12">
+        <div class="col-md-12 mb-3">
           <label for="NameDir" class="form-label">Name of Director/ Shareholders</label>
-          <input type="text" class="form-control" id="address" placeholder="" required>
-          <div class="invalid-feedback">
-            Please enter your company name.
-          </div>
+          <input type="text" class="form-control" formControlName="directorName" id="address" autocomplete="off">
+          <small class="text-danger"
+                 *ngIf="form.get('directorName')?.touched && form.get('directorName')?.hasError('required')">Required field</small>
         </div>
-
-        <div class="col-md-12">
+        <div class="col-md-12 mb-3">
+          <label for="Passport" class="form-label">Passport number of directors</label>
+          <input type="number" class="form-control" formControlName="passportNumber" id="address" autocomplete="off">
+          <small class="text-danger"
+                 *ngIf="form.get('passportNumber')?.touched && form.get('passportNumber')?.hasError('required')">Required field</small>
+        </div>
+        <div class="col-md-12 mb-3">
           <label for="address" class="form-label">Name of designated applicant</label>
-          <input type="text" class="form-control" id="address" placeholder="" required>
-          <div class="invalid-feedback">
-            Please enter your company name.
-          </div>
+          <input type="text" class="form-control" formControlName="designatedName" id="address" autocomplete="off">
+          <small class="text-danger"
+                 *ngIf="form.get('designatedName')?.touched && form.get('designatedName')?.hasError('required')">Required field</small>
         </div>
 
-        <div class="col-12">
-          <label for="username" class="form-label">Email address for further communication</label>
-          <div class="input-group has-validation">
-            <span class="input-group-text"></span>
-            <input type="text" class="form-control" id="username" placeholder="Username" required>
-            <div class="invalid-feedback">
-              Your username is required.
-            </div>
-          </div>
+        <div class="col-12 mb-3">
+          <label for="email" class="form-label">Email address for further communication</label>
+            <input type="text" class="form-control" formControlName="email" id="email" autocomplete="off">
+          <small class="text-danger"
+                 *ngIf="form.get('email')?.touched && form.get('email')?.hasError('required')">Required field</small>
+            <small class="text-danger"
+                   *ngIf="!form.get('email')?.hasError('required') && form.get('email')?.hasError('invalidEmail')">Invalid email address</small>
         </div>
 
       </div>
       <hr class="my-4">
 
-      <button (click)="next()" class="w-100 btn btn-secondary btn-lg" type="submit">Next</button>
-
-      <!--/form-->
-      <div *ngIf="showAlert" style="text-align: center;" class="alert alert-danger alert-dismissible fixed-bottom fade show" role="alert">
-        Erreur : quelque chose s'est mal passé.
-      </div>
-    </div>
-    <div class="col-md-2 col-lg-2">
-
-    </div>
+      <button class="w-100 btn btn-secondary btn-lg" [disabled]="!form.valid" type="submit">Subscribe</button>
+    </form>
   </div>
+  <div class="col-md-2 col-lg-2">
+
+  </div>
+</div>
 
 <footer class="my-5 pt-5 text-muted text-center text-small">
-  <
 </footer>
-

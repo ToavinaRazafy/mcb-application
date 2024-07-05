@@ -9,6 +9,8 @@ import { NgApexchartsModule } from 'ng-apexcharts';
 import { TablerIconsModule } from 'angular-tabler-icons';
 import * as TablerIcons from 'angular-tabler-icons/icons';
 import { AppDashboardComponent } from './dashboard/dashboard.component';
+import {ToastrModule} from "ngx-toastr";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [AppDashboardComponent],
@@ -18,6 +20,7 @@ import { AppDashboardComponent } from './dashboard/dashboard.component';
     FormsModule,
     NgApexchartsModule,
     RouterModule.forChild(PagesRoutes),
+    ToastrModule.forRoot(),
     TablerIconsModule.pick(TablerIcons),
   ],
   exports: [TablerIconsModule],

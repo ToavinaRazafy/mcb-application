@@ -31,7 +31,7 @@ public class UserController {
     {
         return new ResponseEntity<>("test", HttpStatus.OK) ; 
     }
-    @CrossOrigin(origins = "http://localhost:4200")
+    
     @PostMapping("/authenticate")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody AuthenticationRequest authenticationRequest)
     {

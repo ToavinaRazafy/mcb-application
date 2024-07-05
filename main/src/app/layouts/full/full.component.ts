@@ -17,7 +17,7 @@ export class FullComponent implements OnInit {
   @ViewChild('leftsidenav')
   public sidenav: MatSidenav | any;
 
-  //get options from service
+  //get options from helpers
   private layoutChangesSubscription = Subscription.EMPTY;
   private isMobileScreen = false;
   private isContentWidthFixed = true;

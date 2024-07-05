@@ -1,11 +1,12 @@
 import {Injectable} from '@angular/core';
 import {Observable} from "rxjs";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
+import {DashboardView, Page} from "../modeles/dashboard-view";
 
 @Injectable({
   providedIn: 'root'
 })
-export class ApiServiceService {
+export class ApiService {
 
   constructor(public http: HttpClient) {
   }
@@ -28,7 +29,14 @@ export class ApiServiceService {
     return this.http.get<any>(apiUrl);
   }
 
-  getDataById(apiUrl : string) {
-    return this.http.get<any>(apiUrl + 'id?=' +);
+  getDataById(apiUrl : string, id: number) {
+    return this.http.get<any>(apiUrl + 'id?=' + id);
+  }
+
+  getView(search: any,page: number, size: number): Observable<Page<DashboardView>> {
+    let params = new HttpParams()
+      .set('page', page.toString())
+      .set('size', size.toString())
+    return this.http.get<Page<DashboardView>>('/mcb/customer/list', {params});
   }
 }

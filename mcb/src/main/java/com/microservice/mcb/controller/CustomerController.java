@@ -6,6 +6,7 @@ package com.microservice.mcb.controller;
 
 import com.microservice.mcb.entity.Customer;
 import com.microservice.mcb.entity.DashboardView;
+import com.microservice.mcb.entity.Status;
 import com.microservice.mcb.service.ICustomerService;
 import com.microservice.mcb.util.CustomerSearchCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,10 +29,13 @@ public class CustomerController {
 
     @GetMapping("/list")
     public ResponseEntity<?> searchCustomer(
-            @RequestBody CustomerSearchCriteria criteria,
+            @RequestBody(required=false) CustomerSearchCriteria criteria,
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size) {
         try {
+            if (criteria == null) {
+                criteria = new CustomerSearchCriteria();
+            }
             Page<DashboardView> list = customerService.getDashboardView(criteria, page, size);
             return ResponseEntity.ok(list);
         } catch (Exception e) {
@@ -55,6 +59,9 @@ public class CustomerController {
     @PostMapping("/create")
     public ResponseEntity<?> createCustomer(@RequestBody Customer customer) {
         try {
+            Status statusInit = new Status();
+            statusInit.setId(1);
+            customer.setStatus(statusInit);
             customerService.saveCustomer(customer);
            return ResponseEntity.status(HttpStatus.CREATED).build();
         } catch (Exception e) {
